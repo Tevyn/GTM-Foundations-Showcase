@@ -87,7 +87,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  color: var(--text-muted);
+  color: var(--text-on-dark);
   margin-bottom: var(--space-sm);
 }
 
@@ -97,7 +97,7 @@
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.01em;
-  color: var(--text-primary);
+  color: var(--color-ivory);
 }
 
 /* Passage pair */
@@ -156,7 +156,8 @@
   padding: var(--space-lg);
 }
 
-.passageV1 p {
+.passageV1 p,
+.passageV1 li {
   font-family: var(--font-body);
   font-size: 17px;
   font-weight: 400;
@@ -172,7 +173,8 @@
   padding: var(--space-lg);
 }
 
-.passageV2 p {
+.passageV2 p,
+.passageV2 li {
   font-family: var(--font-body);
   font-size: 17px;
   font-weight: 400;

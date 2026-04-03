@@ -1,5 +1,6 @@
 'use client';
 
+import MarkdownRenderer from '@/components/shared/MarkdownRenderer';
 import styles from './AnnotationCards.module.css';
 
 interface Props {
@@ -16,13 +17,13 @@ export default function PassagePair({ section, v1Passage, v2Passage }: Props) {
         <div className={styles.passageCol}>
           <span className={styles.colLabel}>ORIGINAL</span>
           <div className={styles.passageV1}>
-            <p>{v1Passage}</p>
+            <MarkdownRenderer content={v1Passage} />
           </div>
         </div>
         <div className={styles.passageCol}>
           <span className={`${styles.colLabel} ${styles.colLabelV2}`}>WITH GTM METHODOLOGY</span>
           <div className={styles.passageV2}>
-            <p>{v2Passage}</p>
+            <MarkdownRenderer content={v2Passage} />
           </div>
         </div>
       </div>

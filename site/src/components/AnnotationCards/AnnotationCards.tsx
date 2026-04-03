@@ -29,7 +29,7 @@ export default function AnnotationCards() {
       role="region"
       aria-label="Annotation walkthrough"
     >
-      <SnapSection dark={false}>
+      <SnapSection dark={true}>
         <ContextHeader
           company={selectedOutput.company}
           prompt={selectedOutput.prompt}
@@ -37,7 +37,7 @@ export default function AnnotationCards() {
       </SnapSection>
 
       {annotations.map((ann, i) => (
-        <SnapSection key={i} dark={i % 2 === 1}>
+        <SnapSection key={i} dark={false}>
           <div className={styles.passageImpactGroup}>
             <PassagePair
               section={ann.section}
@@ -49,7 +49,7 @@ export default function AnnotationCards() {
         </SnapSection>
       ))}
 
-      <SnapSection dark={annotations.length % 2 === 1} showChevron={false}>
+      <SnapSection dark={true} showChevron={false}>
         <OutputTransition />
       </SnapSection>
     </div>
