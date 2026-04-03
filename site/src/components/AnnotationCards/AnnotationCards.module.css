@@ -107,12 +107,16 @@
 }
 
 .sectionLabel {
-  font-family: var(--font-body);
-  font-size: 20px;
-  font-weight: 500;
+  font-family: var(--font-headline);
+  font-size: 24px;
+  font-weight: 400;
   color: var(--text-secondary);
   margin-bottom: var(--space-md);
   text-align: center;
+}
+
+.snapSectionDark .sectionLabel {
+  color: var(--text-on-dark-bright);
 }
 
 .passages {
@@ -273,4 +277,28 @@
 .revealCta:hover {
   background: var(--color-clay);
   color: var(--text-primary);
+}
+
+.snapSectionDark .transitionLabel {
+  color: var(--text-on-dark);
+}
+
+.snapSectionDark .transitionChip {
+  background: transparent;
+  color: var(--color-ivory);
+  border-color: var(--text-on-dark);
+}
+
+.snapSectionDark .transitionChip:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.snapSectionDark .revealCta {
+  color: var(--text-on-dark);
+  border-color: var(--text-on-dark);
+}
+
+.snapSectionDark .revealCta:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-ivory);
 }
