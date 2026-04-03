@@ -1,0 +1,73 @@
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-xl);
+  transition: opacity 120ms ease;
+}
+
+.fading {
+  opacity: 0.3;
+}
+
+.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - var(--header-total));
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.columnV1, .columnV2 {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.colHeader {
+  background: var(--color-clay);
+  padding: var(--space-sm) var(--space-md);
+}
+
+.colHeaderV2 {
+  background: var(--color-indigo);
+  padding: var(--space-sm) var(--space-md);
+}
+
+.colLabel {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+}
+
+.colLabelV2 {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--color-lilac);
+}
+
+.colBody {
+  padding: var(--space-lg) var(--space-md);
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
+}
+
+.columnV1 .colBody {
+  background: var(--color-ivory);
+  color: var(--text-secondary);
+}
+
+.columnV2 .colBody {
+  background: var(--color-white);
+}

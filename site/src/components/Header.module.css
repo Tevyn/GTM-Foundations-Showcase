@@ -1,0 +1,113 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--color-white);
+  border-bottom: 1px solid var(--color-clay);
+}
+
+.headerTop {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  padding: var(--space-md) var(--space-xl);
+  flex-wrap: nowrap;
+}
+
+.wordmark {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  user-select: none;
+  padding: 0;
+}
+
+.wordmarkGtm {
+  font-family: var(--font-headline);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.wordmarkFoundations {
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+
+.outputChips {
+  display: flex;
+  gap: var(--space-sm);
+  overflow-x: auto;
+  flex: 1;
+  min-width: 0;
+}
+
+.chip {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 14px;
+  border-radius: 100px;
+  border: 1px solid var(--color-clay);
+  background: var(--color-white);
+  color: var(--text-primary);
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all var(--transition-fast);
+}
+
+.chip:hover:not(.chipActive) {
+  background: var(--color-clay);
+}
+
+.chipActive {
+  background: var(--color-indigo);
+  color: var(--color-white);
+  font-weight: 600;
+  border-color: var(--color-indigo);
+}
+
+.revealBtn {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 7px 14px;
+  background: var(--color-yellow-tint);
+  border: 1px solid var(--color-yellow);
+  border-radius: var(--radius-md);
+  color: var(--color-indigo);
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all var(--transition-fast);
+}
+
+.revealBtn:hover {
+  background: var(--color-yellow);
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform var(--transition-fast);
+}
+
+.revealBtn:hover .arrow {
+  transform: translateX(2px);
+}
+
+.subBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-sm) var(--space-xl);
+  background: var(--color-ivory);
+  border-top: 1px solid var(--color-clay);
+}

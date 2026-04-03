@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,500&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --color-indigo: #202A46;
+  --color-yellow: #F5C518;
+  --color-yellow-hover: #D4B016;
+  --color-lilac: #D9D0FF;
+  --color-violet-muted: #8B7EB8;
+  --color-violet-deep: #5C5280;
+  --color-yellow-dark: #C09B0A;
+  --color-ivory: #FAF8F3;
+  --color-clay: #F0EDE8;
+  --color-clay-hover: #E5E2DC;
+  --color-white: #FFFFFF;
+  --color-yellow-tint: #FDF8E6;
+  --color-violet-mist: #EDEAF5;
+  --text-primary: #202A46;
+  --text-secondary: #4A5568;
+  --text-muted: #555962;
+  --text-on-dark: #8B9BB5;
+  --text-on-dark-bright: #D9D0FF;
+  --font-headline: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 40px;
+  --space-2xl: 64px;
+  --space-3xl: 96px;
+  --radius-sm: 3px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
+  --header-height: 60px;
+  --header-total: 100px;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  background: var(--color-ivory);
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--color-yellow);
+  outline-offset: 2px;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

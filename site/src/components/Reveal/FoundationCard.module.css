@@ -1,0 +1,115 @@
+.card {
+  border: 1px solid var(--color-clay);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  background: var(--color-white);
+}
+
+.badge {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-violet-deep);
+  background: var(--color-violet-mist);
+  padding: 4px 12px;
+  border-radius: 100px;
+  margin-bottom: var(--space-sm);
+}
+
+.context {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-md);
+}
+
+.toggleBtn {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  background: var(--color-white);
+  border: 1px solid var(--color-clay);
+  border-radius: var(--radius-md);
+  padding: 8px 14px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toggleBtn:hover {
+  background: var(--color-clay);
+}
+
+.chevron {
+  display: inline-block;
+  transition: transform var(--transition-normal);
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+/* Expandable panel */
+.docPanel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition-normal);
+}
+
+.docPanelOpen {
+  max-height: 1200px;
+  margin-top: var(--space-md);
+}
+
+.loading {
+  text-align: center;
+  color: var(--text-secondary);
+  font-style: italic;
+  padding: var(--space-lg);
+}
+
+.docPair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.docCol {
+  border: 1px solid var(--color-clay);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.docColLabel, .docColLabelV2 {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: var(--space-sm) var(--space-md);
+}
+
+.docColLabel {
+  background: var(--color-clay);
+  color: var(--text-muted);
+}
+
+.docColLabelV2 {
+  background: var(--color-indigo);
+  color: var(--color-lilac);
+}
+
+.docColContent {
+  padding: var(--space-md);
+  max-height: 500px;
+  overflow-y: auto;
+  font-size: 13px;
+  line-height: 1.6;
+}

@@ -1,0 +1,26 @@
+.callout {
+  background: linear-gradient(135deg, #202A46 0%, #2E3A5C 100%);
+  border: 1px solid rgba(217, 208, 255, 0.08);
+  border-radius: var(--radius-lg);
+  padding: 64px 40px 40px;
+  text-align: center;
+}
+
+.label {
+  font-family: var(--font-headline);
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--color-lilac);
+  margin-bottom: var(--space-md);
+}
+
+.text {
+  font-family: var(--font-headline);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.92);
+  max-width: 620px;
+  margin: 0 auto;
+}

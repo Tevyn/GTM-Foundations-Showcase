@@ -7,6 +7,14 @@
       "runtimeArgs": ["demo-display/server.js"],
       "port": 3000,
       "autoPort": true
+    },
+    {
+      "name": "site",
+      "runtimeExecutable": "/opt/homebrew/Cellar/node/24.1.0/bin/node",
+      "runtimeArgs": ["node_modules/.bin/next", "dev", "-p", "3001"],
+      "cwd": "site",
+      "port": 3001,
+      "autoPort": true
     }
   ]
 }

@@ -1,0 +1,152 @@
+.page {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: var(--space-2xl) var(--space-xl) var(--space-xl);
+}
+
+.empty {
+  text-align: center;
+  color: var(--text-secondary);
+  font-style: italic;
+  padding: var(--space-3xl) 0;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+  opacity: 0;
+  animation: fadeUp 0.25s ease forwards;
+}
+
+.title {
+  font-family: var(--font-headline);
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  margin-bottom: var(--space-md);
+}
+
+.subtitle {
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+/* Comparison panels */
+.comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+  opacity: 0;
+  animation: fadeUp 0.25s ease 0.05s forwards;
+}
+
+.sideV1, .sideV2 {
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+}
+
+.sideV1 {
+  background: var(--color-clay);
+}
+
+.sideV2 {
+  background: var(--color-yellow-tint);
+}
+
+.sideLabel {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.sideText {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+.sideList {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text-primary);
+  padding-left: var(--space-lg);
+}
+
+.sideList li {
+  margin-bottom: var(--space-xs);
+}
+
+/* Docs section */
+.docsSection {
+  margin-bottom: var(--space-xl);
+  opacity: 0;
+  animation: fadeUp 0.25s ease 0.1s forwards;
+}
+
+.docsHeadline {
+  font-family: var(--font-headline);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  margin-bottom: var(--space-md);
+}
+
+.docsCompanySelect {
+  margin-bottom: var(--space-lg);
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+/* Back button */
+.backRow {
+  text-align: center;
+  margin-top: var(--space-xl);
+  opacity: 0;
+  animation: fadeUp 0.25s ease 0.2s forwards;
+}
+
+.backBtn {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: var(--color-white);
+  border: 1px solid var(--color-clay);
+  border-radius: var(--radius-md);
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.backBtn:hover {
+  background: var(--color-clay);
+  color: var(--text-primary);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
