@@ -54,16 +54,3 @@ export async function fetchReveal(challenge: string): Promise<RevealData | null>
   if (!res.ok) return null;
   return res.json();
 }
-
-// Legacy endpoints for SSE flow
-export async function fetchLegacyMeta(): Promise<Record<string, unknown> | null> {
-  const res = await fetch('/api/meta');
-  if (!res.ok) return null;
-  return res.json();
-}
-
-export async function fetchLegacyMarkdown(file: 'v1' | 'v2' | 'annotations'): Promise<string> {
-  const res = await fetch(`/api/${file}`);
-  if (!res.ok) return '';
-  return res.text();
-}

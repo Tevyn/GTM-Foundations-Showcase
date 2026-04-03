@@ -434,8 +434,6 @@ Also update `meta.json` to include a `challenges` array listing all challenges t
 {"prompt": "...", "skill": "...", "challenges": ["Engagement & Conversion", "Retention"]}
 ```
 
-Also copy the annotations to `demo-display/output/annotations.md` alongside the v1.md and v2.md files, so the display page can pick them up.
-
 Confirm to the user: "Annotations saved — {N} annotations covering [which challenges were tagged] and [which foundation inputs were referenced]."
 
 ## What this skill does NOT do

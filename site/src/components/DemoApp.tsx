@@ -4,7 +4,6 @@ import { useEffect, useCallback } from 'react';
 import { DemoProvider, useDemoState, useDemoDispatch } from '@/context/DemoContext';
 import { fetchCompanies, fetchCompaniesWithDocs } from '@/lib/api';
 import { useKeyboard } from '@/hooks/useKeyboard';
-import { useSSE } from '@/hooks/useSSE';
 import Header from './Header';
 import Landing from './Landing';
 import AnnotationCards from './AnnotationCards/AnnotationCards';
@@ -38,14 +37,6 @@ function DemoAppInner() {
   }, [dispatch]);
 
   useKeyboard(goToLanding);
-
-  // SSE for live updates
-  useSSE(useCallback(() => {
-    // When SSE fires, refresh companies list
-    fetchCompanies().then(companies => {
-      dispatch({ type: 'SET_COMPANIES', companies });
-    });
-  }, [dispatch]));
 
   return (
     <>

@@ -4,8 +4,6 @@ import fs from 'fs';
 // Content is either symlinked (dev) or copied (build) into site/content/
 const SITE_ROOT = path.resolve(/*turbopackIgnore: true*/ process.cwd());
 export const CONTENT_DIR = path.join(SITE_ROOT, 'content');
-export const OUTPUT_DIR = path.join(CONTENT_DIR, 'output');
-
 export function safePath(base: string, ...segments: string[]): string | null {
   const resolved = path.resolve(base, ...segments);
   if (!resolved.startsWith(path.resolve(base))) return null;

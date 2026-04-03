@@ -127,13 +127,11 @@ Once both agents complete:
 
 1. Write a `meta.json` file to the slug directory (`company-gtm-docs/{company}/demo-output/{slug}/meta.json`) with: `{"prompt": "{prompt}", "skill": "{skill}"}`.
 
-2. **Auto-push to the display page:** Copy the outputs to the display directory (`demo-display/output/v1.md`, `demo-display/output/v2.md`) and write a `demo-display/output/meta.json` with `{"company": "{company}", "prompt": "{prompt}", "skill": "{skill}"}`. This happens automatically every time — no confirmation needed. The outputs are immediately browsable from the display page's company/output dropdown.
+2. Confirm to the user: "Both outputs are ready. V1 and V2 saved to `company-gtm-docs/{company}/demo-output/{slug}/`."
 
-3. Confirm to the user: "Both outputs are ready and pushed to display. V1 and V2 saved to `company-gtm-docs/{company}/demo-output/{slug}/`."
+3. Ask: **"Want to open the display in browser?"**
 
-4. Ask: **"Want to open the display in browser?"**
-
-- If yes: run `open http://localhost:3000` (start the server first if not running — check with `lsof -ti:3000`).
+- If yes: run `open http://localhost:3001` (start the Next.js site first if not running — check with `lsof -ti:3001`; if not running, `cd site && npm run dev &`).
 - If no: skip.
 
 Then ask: **"Another prompt, or done?"**
@@ -158,10 +156,6 @@ company-gtm-docs/{company}/
         ├── v2.md
         └── meta.json          ← {"prompt": "...", "skill": "..."}
 
-demo-display/output/           ← legacy push target (for SSE live updates)
-├── v1.md
-├── v2.md
-└── meta.json
 ```
 
 ## Notes on live demo usage
