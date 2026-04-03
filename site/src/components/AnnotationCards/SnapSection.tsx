@@ -36,7 +36,7 @@ export default function SnapSection({ children, dark, showChevron = true }: Prop
       className={`${styles.snapSection} ${bgClass} ${visible ? styles.visible : ''}`}
     >
       {children}
-      {showChevron && <div className={styles.scrollChevron} />}
+      {showChevron && <div className={styles.scrollChevron} aria-hidden="true" />}
     </div>
   );
 }

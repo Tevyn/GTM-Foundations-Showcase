@@ -32,11 +32,17 @@ skills/                     # Claude Code skill definitions
   sales-comms-v1/, sales-comms-v2/  # Sales communications generation
 ```
 
+## First-time setup
+
+```bash
+cd site && npm install           # install dependencies (one-time)
+```
+
 ## Key commands
 
 ```bash
 # Start the Next.js display site
-cd site && npm run dev          # runs on port 3001
+cd site && npm run dev          # runs on port 3001 (auto-symlinks content via predev hook)
 
 # Build for production
 cd site && npm run build

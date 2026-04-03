@@ -7,7 +7,7 @@
   --color-lilac: #D9D0FF;
   --color-violet-muted: #8B7EB8;
   --color-violet-deep: #5C5280;
-  --color-yellow-dark: #C09B0A;
+  --color-yellow-dark: #7A6200;
   --color-ivory: #FAF8F3;
   --color-clay: #F0EDE8;
   --color-clay-hover: #E5E2DC;
@@ -63,4 +63,23 @@ body {
 .hide-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* Column label base pattern — shared across FullOutput, AnnotationCards, FoundationCard */
+.col-label-base {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

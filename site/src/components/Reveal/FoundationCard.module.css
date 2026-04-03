@@ -88,11 +88,7 @@
 }
 
 .docColLabel, .docColLabelV2 {
-  font-family: var(--font-body);
-  font-size: 10px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
+  composes: col-label-base from global;
   padding: var(--space-sm) var(--space-md);
 }
 

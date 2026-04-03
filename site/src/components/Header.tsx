@@ -69,12 +69,14 @@ export default function Header() {
         </button>
 
         {showControls && (
-          <div className={`${styles.outputChips} hide-scrollbar`}>
+          <div className={`${styles.outputChips} hide-scrollbar`} role="tablist" aria-label="Demo outputs">
             {companyOutputs.map(o => (
               <button
                 key={o.slug}
                 className={`${styles.chip} ${selectedOutput?.slug === o.slug ? styles.chipActive : ''}`}
                 onClick={() => selectOutput(o)}
+                role="tab"
+                aria-selected={selectedOutput?.slug === o.slug}
               >
                 {shortOutputName(o.prompt)}
               </button>

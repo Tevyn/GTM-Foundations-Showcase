@@ -53,13 +53,21 @@ export default function FoundationCard({ foundation, company }: Props) {
     <div className={styles.card}>
       <div className={styles.badge}>{foundation.display}</div>
       <p className={styles.context}>{foundation.context}</p>
-      <button className={styles.toggleBtn} onClick={toggle}>
+      <button
+        className={styles.toggleBtn}
+        onClick={toggle}
+        aria-expanded={expanded}
+        aria-controls={`docPanel-${foundation.key}`}
+      >
         View the full {foundation.display} docs{' '}
-        <span className={`${styles.chevron} ${expanded ? styles.chevronOpen : ''}`}>
+        <span className={`${styles.chevron} ${expanded ? styles.chevronOpen : ''}`} aria-hidden="true">
           &#9662;
         </span>
       </button>
-      <div className={`${styles.docPanel} ${expanded ? styles.docPanelOpen : ''}`}>
+      <div
+        id={`docPanel-${foundation.key}`}
+        className={`${styles.docPanel} ${expanded ? styles.docPanelOpen : ''}`}
+      >
         {loading ? (
           <div className={styles.loading}>Loading...</div>
         ) : (

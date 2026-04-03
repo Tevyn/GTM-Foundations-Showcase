@@ -38,6 +38,17 @@ function DemoAppInner() {
 
   useKeyboard(goToLanding);
 
+  // Dynamic page title
+  useEffect(() => {
+    const titles: Record<string, string> = {
+      landing: 'GTM Foundations',
+      breakdown: 'GTM Foundations — Breakdown',
+      full: 'GTM Foundations — Full Output',
+      reveal: 'GTM Foundations — Foundation Docs',
+    };
+    document.title = titles[state.view] || 'GTM Foundations';
+  }, [state.view]);
+
   return (
     <>
       <Header />

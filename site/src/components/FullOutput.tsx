@@ -20,7 +20,7 @@ export default function FullOutput() {
       <div className={styles.columns}>
         <div className={styles.columnV1}>
           <div className={styles.colHeader}>
-            <span className={styles.colLabel}>ORIGINAL</span>
+            <h2 className={styles.colLabel}>ORIGINAL</h2>
           </div>
           <div className={styles.colBody}>
             <MarkdownRenderer content={v1Content} />
@@ -28,7 +28,7 @@ export default function FullOutput() {
         </div>
         <div className={styles.columnV2}>
           <div className={styles.colHeaderV2}>
-            <span className={styles.colLabelV2}>WITH GTM METHODOLOGY</span>
+            <h2 className={styles.colLabelV2}>WITH GTM METHODOLOGY</h2>
           </div>
           <div className={styles.colBody}>
             <MarkdownRenderer content={v2Content} />

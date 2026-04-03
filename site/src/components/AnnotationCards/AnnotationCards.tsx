@@ -26,6 +26,8 @@ export default function AnnotationCards() {
     <div
       ref={containerRef}
       className={`${styles.container} ${loading ? styles.fading : ''}`}
+      role="region"
+      aria-label="Annotation walkthrough"
     >
       <SnapSection dark={false}>
         <ContextHeader

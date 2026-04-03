@@ -10,16 +10,20 @@ interface Props {
 
 export default function ViewToggle({ currentView, onToggle }: Props) {
   return (
-    <div className={styles.toggle}>
+    <div className={styles.toggle} role="tablist" aria-label="View mode">
       <button
         className={`${styles.btn} ${currentView === 'breakdown' ? styles.active : ''}`}
         onClick={() => onToggle('breakdown')}
+        role="tab"
+        aria-selected={currentView === 'breakdown'}
       >
         Breakdown
       </button>
       <button
         className={`${styles.btn} ${currentView === 'full' ? styles.active : ''}`}
         onClick={() => onToggle('full')}
+        role="tab"
+        aria-selected={currentView === 'full'}
       >
         Full Output
       </button>
