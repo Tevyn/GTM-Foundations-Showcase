@@ -12,9 +12,10 @@ import { ViewState } from '@/types';
 export default function Header() {
   const state = useDemoState();
   const dispatch = useDemoDispatch();
-  const { view, companyOutputs, selectedOutput, companies, selectedCompany } = state;
+  const { view, companyOutputs, selectedOutput, companies, selectedCompany, companiesWithDocs, revealCompany } = state;
 
   const showControls = view === 'breakdown' || view === 'full';
+  const showRevealSubBar = view === 'reveal';
 
   async function handleCompanyChange(company: string) {
     dispatch({ type: 'SELECT_COMPANY', company });
@@ -49,6 +50,10 @@ export default function Header() {
   function goToLanding() {
     dispatch({ type: 'SET_VIEW', view: 'landing' });
     dispatch({ type: 'SELECT_OUTPUT', output: null });
+  }
+
+  function handleRevealCompanyChange(company: string) {
+    dispatch({ type: 'SET_REVEAL_COMPANY', company });
   }
 
   function openReveal() {
@@ -92,6 +97,16 @@ export default function Header() {
             onChange={handleCompanyChange}
           />
           <ViewToggle currentView={view} onToggle={handleViewToggle} />
+        </div>
+      )}
+
+      {showRevealSubBar && companiesWithDocs.length > 0 && (
+        <div className={styles.subBar}>
+          <CompanyDropdown
+            companies={companiesWithDocs}
+            value={revealCompany || companiesWithDocs[0]}
+            onChange={handleRevealCompanyChange}
+          />
         </div>
       )}
     </header>

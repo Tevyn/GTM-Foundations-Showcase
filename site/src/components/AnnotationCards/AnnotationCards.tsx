@@ -27,7 +27,7 @@ export default function AnnotationCards() {
       ref={containerRef}
       className={`${styles.container} ${loading ? styles.fading : ''}`}
     >
-      <SnapSection>
+      <SnapSection dark={false}>
         <ContextHeader
           company={selectedOutput.company}
           prompt={selectedOutput.prompt}
@@ -35,21 +35,19 @@ export default function AnnotationCards() {
       </SnapSection>
 
       {annotations.map((ann, i) => (
-        <div key={i}>
-          <SnapSection>
+        <SnapSection key={i} dark={i % 2 === 1}>
+          <div className={styles.passageImpactGroup}>
             <PassagePair
               section={ann.section}
               v1Passage={ann.v1Passage}
               v2Passage={ann.v2Passage}
             />
-          </SnapSection>
-          <SnapSection>
             <ImpactStatement impact={ann.impact} />
-          </SnapSection>
-        </div>
+          </div>
+        </SnapSection>
       ))}
 
-      <SnapSection>
+      <SnapSection dark={annotations.length % 2 === 1} showChevron={false}>
         <OutputTransition />
       </SnapSection>
     </div>

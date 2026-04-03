@@ -13,27 +13,77 @@
 .snapSection {
   height: calc(100vh - var(--header-total));
   scroll-snap-align: start;
+  scroll-snap-stop: always;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: var(--space-xl) var(--space-xl);
   opacity: 0;
   transition: opacity 0.2s ease;
+  position: relative;
+}
+
+.snapSectionDark {
+  background: var(--color-indigo);
+}
+
+.snapSectionLight {
+  background: var(--color-ivory);
 }
 
 .visible {
   opacity: 1;
 }
 
+/* Scroll chevron affordance */
+.scrollChevron {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  opacity: 0.35;
+  animation: chevronBounce 2s ease-in-out infinite;
+}
+
+.scrollChevron::before,
+.scrollChevron::after {
+  content: '';
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-right: 2px solid var(--text-muted);
+  border-bottom: 2px solid var(--text-muted);
+  transform: rotate(45deg);
+}
+
+.scrollChevron::after {
+  margin-top: -8px;
+}
+
+.snapSectionDark .scrollChevron::before,
+.snapSectionDark .scrollChevron::after {
+  border-color: var(--text-on-dark);
+}
+
+@keyframes chevronBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(6px); }
+}
+
 /* Context header */
 .contextHeader {
   text-align: center;
-  max-width: 780px;
+  max-width: 900px;
 }
 
 .companyOverline {
   font-family: var(--font-body);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1.5px;
@@ -43,24 +93,43 @@
 
 .contextHeadline {
   font-family: var(--font-headline);
-  font-size: 28px;
+  font-size: 38px;
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.01em;
   color: var(--text-primary);
-  margin-bottom: var(--space-xl);
 }
 
-.columnHeaders {
+/* Passage pair */
+.passagePair {
+  max-width: 1000px;
+  width: 100%;
+}
+
+.sectionLabel {
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-md);
+  text-align: center;
+}
+
+.passages {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-md);
-  text-align: left;
+  gap: var(--space-lg);
+}
+
+.passageCol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
 }
 
 .colLabel {
   font-family: var(--font-body);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1.5px;
@@ -71,37 +140,24 @@
   color: var(--color-yellow-dark);
 }
 
-/* Passage pair */
-.passagePair {
-  max-width: 860px;
-  width: 100%;
+.snapSectionDark .colLabel {
+  color: var(--text-on-dark);
 }
 
-.sectionLabel {
-  font-family: var(--font-body);
-  font-size: 17px;
-  font-weight: 500;
-  color: var(--text-secondary);
-  margin-bottom: var(--space-md);
-  text-align: center;
-}
-
-.passages {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-md);
+.snapSectionDark .colLabelV2 {
+  color: var(--color-yellow);
 }
 
 .passageV1 {
   background: var(--color-clay);
   border-left: 3px solid var(--text-muted);
   border-radius: var(--radius-sm);
-  padding: 14px 16px;
+  padding: 20px 24px;
 }
 
 .passageV1 p {
   font-family: var(--font-body);
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 400;
   font-style: italic;
   line-height: 1.65;
@@ -112,16 +168,26 @@
   background: var(--color-yellow-tint);
   border-left: 3px solid var(--color-yellow);
   border-radius: var(--radius-sm);
-  padding: 14px 16px;
+  padding: 20px 24px;
 }
 
 .passageV2 p {
   font-family: var(--font-body);
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 400;
   font-style: italic;
   line-height: 1.65;
   color: var(--text-primary);
+}
+
+/* Combined passage + impact wrapper */
+.passageImpactGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  max-width: 1000px;
+  width: 100%;
 }
 
 /* Impact statement */
@@ -129,18 +195,29 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 680px;
-  padding: var(--space-xl) var(--space-lg);
+  max-width: 800px;
+  padding: var(--space-lg) var(--space-lg) 0;
+  opacity: 0;
+  animation: fadeInImpact 0.5s ease 0.4s forwards;
 }
 
 .impactText {
   font-family: var(--font-headline);
-  font-size: 19px;
+  font-size: 26px;
   font-weight: 500;
   line-height: 1.55;
   letter-spacing: -0.01em;
   color: var(--text-primary);
   text-align: center;
+}
+
+.snapSectionDark .impactText {
+  color: var(--color-ivory);
+}
+
+@keyframes fadeInImpact {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Output transition */
@@ -154,7 +231,7 @@
 
 .transitionLabel {
   font-family: var(--font-body);
-  font-size: 14px;
+  font-size: 16px;
   color: var(--text-secondary);
   margin-bottom: var(--space-md);
 }
@@ -168,9 +245,9 @@
 
 .transitionChip {
   font-family: var(--font-body);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
-  padding: 8px 16px;
+  padding: 10px 20px;
   background: var(--color-white);
   border: 1px solid var(--color-clay);
   border-radius: var(--radius-md);
@@ -185,13 +262,13 @@
 
 .revealCta {
   font-family: var(--font-body);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   color: var(--text-secondary);
   background: none;
   border: 1px solid var(--color-clay);
   border-radius: var(--radius-md);
-  padding: 8px 16px;
+  padding: 10px 20px;
   cursor: pointer;
   transition: all var(--transition-fast);
 }

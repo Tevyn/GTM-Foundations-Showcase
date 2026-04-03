@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useDemoState, useDemoDispatch } from '@/context/DemoContext';
 import { fetchCompaniesWithDocs } from '@/lib/api';
 import { FOUNDATION_AREAS, REVEAL_COPY } from '@/lib/constants';
-import CompanyDropdown from '../shared/CompanyDropdown';
+
 import FoundationCard from './FoundationCard';
 import WhatsNext from './WhatsNext';
 import styles from './Reveal.module.css';
@@ -32,11 +32,6 @@ export default function Reveal() {
   useEffect(() => {
     if (revealCompany) setLocalCompany(revealCompany);
   }, [revealCompany]);
-
-  function handleCompanyChange(company: string) {
-    setLocalCompany(company);
-    dispatch({ type: 'SET_REVEAL_COMPANY', company });
-  }
 
   function backToExamples() {
     dispatch({ type: 'SET_VIEW', view: 'breakdown' });
@@ -77,14 +72,6 @@ export default function Reveal() {
 
       <div className={styles.docsSection}>
         <h2 className={styles.docsHeadline}>{REVEAL_COPY.docsHeadline}</h2>
-        <div className={styles.docsCompanySelect}>
-          <CompanyDropdown
-            companies={localCompanies}
-            value={localCompany || localCompanies[0]}
-            onChange={handleCompanyChange}
-            label="Viewing docs for:"
-          />
-        </div>
 
         <div className={styles.cards}>
           {FOUNDATION_AREAS.map(f => (

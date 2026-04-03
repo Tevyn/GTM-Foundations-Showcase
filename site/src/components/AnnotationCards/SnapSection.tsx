@@ -5,9 +5,11 @@ import styles from './AnnotationCards.module.css';
 
 interface Props {
   children: ReactNode;
+  dark?: boolean;
+  showChevron?: boolean;
 }
 
-export default function SnapSection({ children }: Props) {
+export default function SnapSection({ children, dark, showChevron = true }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -26,12 +28,15 @@ export default function SnapSection({ children }: Props) {
     return () => observer.disconnect();
   }, []);
 
+  const bgClass = dark ? styles.snapSectionDark : styles.snapSectionLight;
+
   return (
     <div
       ref={ref}
-      className={`${styles.snapSection} ${visible ? styles.visible : ''}`}
+      className={`${styles.snapSection} ${bgClass} ${visible ? styles.visible : ''}`}
     >
       {children}
+      {showChevron && <div className={styles.scrollChevron} />}
     </div>
   );
 }

@@ -13,12 +13,8 @@ export default function ContextHeader({ company, prompt }: Props) {
     <div className={styles.contextHeader}>
       <div className={styles.companyOverline}>{formatCompanyName(company)}</div>
       <h2 className={styles.contextHeadline}>
-        Let&rsquo;s take a look at a {shortOutputName(prompt)}.
+        Let&rsquo;s take a look at a {shortOutputName(prompt).toLowerCase()}.
       </h2>
-      <div className={styles.columnHeaders}>
-        <span className={styles.colLabel}>ORIGINAL</span>
-        <span className={`${styles.colLabel} ${styles.colLabelV2}`}>WITH GTM METHODOLOGY</span>
-      </div>
     </div>
   );
 }
