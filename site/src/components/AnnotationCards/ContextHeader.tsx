@@ -13,7 +13,7 @@ export default function ContextHeader({ company, prompt }: Props) {
     <div className={styles.contextHeader}>
       <div className={styles.companyOverline}>{formatCompanyName(company)}</div>
       <h2 className={styles.contextHeadline}>
-        Let&rsquo;s take a look at a {shortOutputName(prompt).toLowerCase()}.
+        Compare two versions of a {shortOutputName(prompt).toLowerCase()}.
       </h2>
     </div>
   );

@@ -2,57 +2,75 @@
 
 ---
 
-**Section:** How each version frames the competition
+**Section:** How the brief frames each competitor
 
 > [!v1-passage]
-> Sortly is the **simple, visual, mobile-first** alternative. When a mid-market buyer is evaluating tools, the conversation should center on these differentiators: We're easier to set up and use than InFlow or Asset Panda. We're more structured and scalable than spreadsheets. Our photo-based tracking and mobile-first design are unique in the category.
+> **If they mention InFlow:**
+> "InFlow is a solid tool -- where we hear customers run into issues is around complexity. InFlow is built more for manufacturing and supply chain workflows, which means there's a lot of functionality that mid-market teams don't need and don't want to pay for. Sortly is purpose-built for simplicity."
 
 > [!v2-passage]
-> Most of the tools you'll find were built for warehouses or IT departments — they assume inventory sits on shelves and someone at a desktop keeps it updated. That's not your world. Your inventory is on trucks, at job sites, in transit between crews. The person who needs to update the system is standing in a driveway with dirty hands and ten minutes before the next job.
+> **"InFlow has purchase orders and supplier management":** Honest context — InFlow does have deeper purchasing workflow capabilities, including PO management and multi-warehouse SKU tracking. **The reframe:** Ask the buyer what their actual problem is. If the answer is "I need to know what's on each truck and stop losing tools," purchase order management doesn't solve that. InFlow was built for warehouse and retail inventory — stationary products on shelves with SKU numbers. Field service inventory is distributed across moving vehicles and rotating crews.
 
 **Challenge:** Engagement & Conversion
 
-**V1:** The original positioning leads with feature advantages over named competitors, so the brief invites the buyer to comparison-shop instead of rethinking their approach.
+**V1:** The original positioning leads with features and complexity, so the brief concedes competitors are "solid" and argues Sortly is simpler.
 
-**V2:** The focused positioning explains why the typical approach fails for this buyer's world, so the brief dismisses alternatives as a peer observation rather than a vendor pitch.
+**V2:** The focused positioning explains why the typical approach fails for this buyer, so the brief reframes competitors as solving the wrong problem entirely.
 
-**Impact:** Feature comparisons invite side-by-side shopping. Reframing why alternatives fail earns consideration.
+**Difference:** One concedes the competitor is good and argues on complexity, the other reframes whether the competitor solves the buyer's actual problem.
 
----
+**Impact:** Buyers move faster when they see their problem named precisely. Vague competitive comparisons slow deals down.
 
-**Section:** How each version quantifies the cost of doing nothing
-
-> [!v1-passage]
-> Teams managing inventory across multiple sites -- warehouses, offices, job sites, vehicles -- rely on spreadsheets or paper lists that go stale the moment someone moves, uses, or restocks an item. Managers spend hours each week reconciling counts and chasing down discrepancies.
-
-> [!v2-passage]
-> For a mid-market field service company with 5-15 trucks, the invisible cost of the current approach adds up fast: owner time, emergency rentals, and crew idle time from asset location blindness alone. Add duplicate purchasing and silent tool loss, plus job site delays from equipment unavailability. Sortly costs $600-$6,000/year — a payback period measured in weeks, not months.
-
-**Challenge:** Engagement & Conversion, Account Value
-
-**V1:** The original problem-solution work describes pain at headline level, so the brief can only name symptoms the buyer has heard from every other vendor.
-
-**V2:** The focused problem-solution work maps how the pain compounds in this buyer's specific operation, so the brief builds a cost-of-inaction case the seller can use to create urgency.
-
-**Impact:** Generic pain descriptions don't create urgency. Quantified cost-of-inaction is what defends pricing.
+**Evidence:** Buying groups that align on the problem — not just the solution — are 2.5x more likely to close according to one Gartner report.
 
 ---
 
-**Section:** The proof each version gives the seller
+**Section:** The deal context at the top of the brief
 
 > [!v1-passage]
-> **15,000+ customers** across 28+ industries. Trusted by **Schneider IT, Sephora, Chewy, and Terminix**. Customers track **$1M+ in equipment** using Sortly.
+> Mid-market companies (100-500 employees) across industries like construction, healthcare, warehousing, IT/facilities, and manufacturing are increasingly looking to move off spreadsheets and manual tracking processes. Many are evaluating dedicated inventory management platforms for the first time, while others are looking to replace a basic tool they've outgrown.
 
 > [!v2-passage]
-> A construction customer identified duplicate inventory within the first 90 days, leading to purchasing changes that save an estimated ongoing annual value. Field service customers report significant reduction in time spent locating equipment within the first month of adoption — because the data is current, because the crews are the ones updating it.
+> The prospect is a field service company (construction, plumbing, electrical, or HVAC) with **10-100 employees and 5-15 trucks** currently evaluating inventory tracking tools. They've outgrown spreadsheets or manual tracking after a trigger event — a costly equipment loss, growth past 5 trucks, repeated job delays, or a painful annual audit. The buyer is the owner or ops manager, and they're evaluating based on three criteria in this order: (1) does it work on a phone in the field, (2) will my least tech-savvy crew member use it, (3) how fast do I see value.
 
 **Challenge:** Engagement & Conversion
 
-**V1:** The original problem-solution work has no segment-specific proof, so the brief defaults to logo drops and broad customer counts that signal "we sell to everyone."
+**V1:** The original ICP covers five industries and a wide company size range, so the brief can only describe a generic market trend instead of a specific deal scenario.
 
-**V2:** The focused problem-solution work includes proof tied to this buyer's context, so the brief can show before-and-after outcomes the prospect recognizes from their own operation.
+**V2:** The focused ICP targets one buyer type with known triggers, so the brief gives the seller a specific prospect profile, evaluation criteria, and the order the buyer weighs them.
 
-**Impact:** Logo lists signal breadth, not depth. Outcome stories are what move a skeptical buyer forward.
+**Difference:** One describes a broad market moving off spreadsheets, the other describes a specific buyer with known triggers and a ranked evaluation checklist.
+
+**Impact:** A brief built around one buyer's priorities — and the order they weigh them — gives sellers a way to create urgency. A generic brief just starts a feature fight.
+
+**Evidence:** 40–60% of enterprise deals are lost to indecision, not competitors.
+
+---
+
+**Section:** How the brief proves ROI
+
+> [!v1-passage]
+> - **15,000+ customers** across 28+ industries
+> - Trusted by **Schneider IT, Sephora, Chewy, and Terminix**
+> - Customers track **$1M+ in equipment** using Sortly
+> - Teams managing **50+ locations** rely on Sortly for real-time visibility
+
+> [!v2-passage]
+> **Duplicate purchasing eliminated:** A construction customer identified **$18K in duplicate inventory within the first 90 days**, leading to purchasing changes that save an estimated **$25K/year** ongoing.
+>
+> **Job delays eliminated:** An HVAC customer eliminated Monday morning equipment scrambles by implementing check-in/check-out, reducing first-day-of-week delays from **an average of 3 per week to near zero within 60 days**.
+
+**Challenge:** Account Value
+
+**V1:** The original problem-solution work is organized by persona, so proof points default to logo-drops and vanity metrics that don't connect to the buyer's cost structure.
+
+**V2:** The focused problem-solution work maps specific cost drivers for this buyer, so proof points show before-and-after outcomes in scenarios the prospect recognizes.
+
+**Difference:** One lists logos and aggregate stats, the other shows named outcomes that map to the buyer's actual cost drivers.
+
+**Impact:** Proof tied to specific cost drivers shortens the business case. The buyer doesn't need to build the ROI story — it's already in front of them.
+
+**Evidence:** Enterprise deals stall on internal justification. When the vendor maps proof to the buyer's cost structure, Forrester shows buying groups move faster.
 
 ---
 
@@ -60,14 +78,16 @@
 
 ## Engagement & Conversion
 
-**ICP:** Most companies define their ICP as a list of industries and company sizes, so the competitive brief reads the same whether the buyer runs a plumbing company or a retail store. When ICP work identifies a specific buyer, their triggers, and their evaluation criteria, every sales asset can speak directly to that person — and that specificity is what earns engagement instead of getting filtered as generic outreach.
+**ICP:** Most companies define their ICP as an industry list and a company size range — so every seller walks into a call with the same generic context. When ICP work identifies the specific buyer, their triggers, and their evaluation criteria, the seller can consult instead of pitch — and that specificity is what converts conversations into deals.
 
-**Problem-solution:** Most companies describe their problem at headline level — "better visibility" or "reduce losses" — so their competitive brief sounds like every other vendor's. When problem-solution work maps the specific mechanism that burns time and money for this buyer, the brief can build a cost-of-inaction case that creates real urgency in the deal.
+**Problem-solution:** Most companies describe their problem at headline level — "moving off spreadsheets" or "better visibility" — so competitive briefs can only argue on features. When problem-solution work maps the specific mechanism that burns time and money, the brief can reframe whether the competitor even solves the right problem — and that reframe is what earns conversion.
 
-**Positioning:** Most companies position against competitors with feature comparison tables, which invites the buyer to add three more vendors to the evaluation. When positioning explains why the typical approach fails for this buyer's situation, the brief frames Sortly as the only alternative that fits — and that framing is what earns consideration instead of comparison.
+**Positioning:** Most companies position against competitors with feature comparison tables — so buyers add three vendors to the eval instead of one. When positioning explains why the typical approach fails for this specific buyer, the brief can dismiss alternatives as the wrong category entirely — and that framing is what shortens deal cycles.
 
-**Messaging:** Most companies have a different value story in their brief than on their website or in their outreach, so the buyer hears a fragmented pitch. When messaging is organized around a single idea, every seller tells the same story — and that consistency is what builds trust and shortens deal cycles.
+**Messaging:** Most companies have proof points that float independently from the value story — so the seller improvises the connection between evidence and the buyer's priorities. When messaging organizes every touchpoint around a single idea, the seller tells a consistent story — and that consistency is what builds trust and earns conversion.
 
 ## Account Value
 
-**Problem-solution:** Most companies can't quantify the cost of the problem they solve, so pricing conversations default to competitor benchmarks. When problem-solution work maps the specific financial impact on this buyer, the seller can anchor price to problem value instead of category norms — and that anchoring is what supports stronger deal sizes and reduces discounting.
+**Problem-solution:** Most companies support their briefs with logo lists and aggregate customer counts — so proof feels generic and interchangeable. When problem-solution work quantifies the specific cost drivers for a focused buyer, proof points show before-and-after outcomes the prospect can map to their own P&L — and that specificity is what supports larger deal sizes and reduces discounting.
+
+**Positioning:** Most companies lead competitive conversations with feature advantages — so pricing anchors to competitor pricing instead of problem value. When positioning frames a structural advantage the competitor cannot claim, the seller can anchor price to the cost of the problem — and that anchoring is what protects deal size.

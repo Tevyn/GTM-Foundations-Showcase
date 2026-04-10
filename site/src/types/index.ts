@@ -11,7 +11,9 @@ export interface ParsedAnnotation {
   section: string;
   v1Passage: string;
   v2Passage: string;
+  difference: string;
   impact: string;
+  evidence: string;
   challenges: string[];
   v1Note: string;
   v2Note: string;

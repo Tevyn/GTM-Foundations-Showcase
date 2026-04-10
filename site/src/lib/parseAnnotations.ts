@@ -17,7 +17,9 @@ export function parseAnnotations(raw: string): ParsedAnnotation[] | null {
     const v1NoteMatch = block.match(/\*\*V1:\*\*\s*(.+)/);
     const v2NoteMatch = block.match(/\*\*V2:\*\*\s*(.+)/);
     const decisionMatch = block.match(/\*\*Decision:\*\*\s*(.+)/);
+    const differenceMatch = block.match(/\*\*Difference:\*\*\s*(.+)/);
     const impactMatch = block.match(/\*\*Impact:\*\*\s*(.+)/);
+    const evidenceMatch = block.match(/\*\*Evidence:\*\*\s*(.+)/);
     const challengeMatch = block.match(/\*\*Challenge:\*\*\s*(.+)/);
     const sectionMatch = block.match(/\*\*Section:\*\*\s*(.+)/);
 
@@ -31,7 +33,9 @@ export function parseAnnotations(raw: string): ParsedAnnotation[] | null {
       v1Note: v1NoteMatch[1].trim(),
       v2Note: v2NoteMatch[1].trim(),
       decision: decisionMatch ? decisionMatch[1].trim() : '',
+      difference: differenceMatch ? differenceMatch[1].trim() : '',
       impact: impactMatch[1].trim(),
+      evidence: evidenceMatch ? evidenceMatch[1].trim() : '',
       challenges: challengeMatch ? challengeMatch[1].trim().split(/,\s*/) : [],
       section: sectionMatch ? sectionMatch[1].trim() : '',
     });

@@ -7,9 +7,19 @@ interface Props {
   children: ReactNode;
   dark?: boolean;
   showChevron?: boolean;
+  differenceIdx?: number;
+  onClick?: () => void;
+  clickable?: boolean;
 }
 
-export default function SnapSection({ children, dark, showChevron = true }: Props) {
+export default function SnapSection({
+  children,
+  dark,
+  showChevron = true,
+  differenceIdx,
+  onClick,
+  clickable,
+}: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -33,7 +43,9 @@ export default function SnapSection({ children, dark, showChevron = true }: Prop
   return (
     <div
       ref={ref}
-      className={`${styles.snapSection} ${bgClass} ${visible ? styles.visible : ''}`}
+      className={`${styles.snapSection} ${bgClass} ${visible ? styles.visible : ''} ${clickable ? styles.clickable : ''}`}
+      data-difference-idx={differenceIdx !== undefined ? differenceIdx : undefined}
+      onClick={onClick}
     >
       {children}
       {showChevron && <div className={styles.scrollChevron} aria-hidden="true" />}

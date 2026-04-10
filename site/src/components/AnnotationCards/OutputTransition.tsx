@@ -10,11 +10,14 @@ export default function OutputTransition() {
   const { companyOutputs, selectedOutput } = useDemoState();
   const dispatch = useDemoDispatch();
 
-  const remainingOutputs = companyOutputs.filter(
-    o => o.slug !== selectedOutput?.slug
-  );
+  const currentIdx = companyOutputs.findIndex(o => o.slug === selectedOutput?.slug);
+  const prevOutput = currentIdx > 0 ? companyOutputs[currentIdx - 1] : null;
+  const nextOutput =
+    currentIdx >= 0 && currentIdx < companyOutputs.length - 1
+      ? companyOutputs[currentIdx + 1]
+      : null;
 
-  async function selectNext(slug: string) {
+  async function selectOutput(slug: string) {
     const output = companyOutputs.find(o => o.slug === slug);
     if (!output) return;
     dispatch({ type: 'SELECT_OUTPUT', output });
@@ -36,27 +39,53 @@ export default function OutputTransition() {
     dispatch({ type: 'SET_VIEW', view: 'reveal' });
   }
 
+  const isLast = nextOutput === null && currentIdx >= 0;
+
   return (
     <div className={styles.outputTransition}>
-      {remainingOutputs.length > 0 && (
-        <div className={styles.transitionOutputs}>
-          <p className={styles.transitionLabel}>See another example:</p>
-          <div className={styles.transitionChips}>
-            {remainingOutputs.map(o => (
-              <button
-                key={o.slug}
-                className={styles.transitionChip}
-                onClick={() => selectNext(o.slug)}
-              >
-                {shortOutputName(o.prompt)}
-              </button>
-            ))}
-          </div>
+      <div className={styles.pagerRow}>
+        <div className={styles.pagerSlot}>
+          {prevOutput && (
+            <button
+              className={styles.pagerBtn}
+              onClick={() => selectOutput(prevOutput.slug)}
+            >
+              <span className={styles.pagerEyebrow}>Previous</span>
+              <span className={styles.pagerLabel}>
+                <span className={styles.pagerArrow}>&larr;</span>{' '}
+                {shortOutputName(prevOutput.prompt)}
+              </span>
+            </button>
+          )}
         </div>
-      )}
-      <button className={styles.revealCta} onClick={openReveal}>
-        View the foundation docs &rarr;
-      </button>
+
+        <div className={`${styles.pagerSlot} ${styles.pagerSlotRight}`}>
+          {nextOutput && (
+            <button
+              className={`${styles.pagerBtn} ${styles.pagerBtnRight}`}
+              onClick={() => selectOutput(nextOutput.slug)}
+            >
+              <span className={styles.pagerEyebrow}>Next</span>
+              <span className={styles.pagerLabel}>
+                {shortOutputName(nextOutput.prompt)}{' '}
+                <span className={styles.pagerArrow}>&rarr;</span>
+              </span>
+            </button>
+          )}
+          {isLast && (
+            <button
+              className={`${styles.pagerBtn} ${styles.pagerBtnRight}`}
+              onClick={openReveal}
+            >
+              <span className={styles.pagerEyebrow}>Next</span>
+              <span className={styles.pagerLabel}>
+                View the foundation docs{' '}
+                <span className={styles.pagerArrow}>&rarr;</span>
+              </span>
+            </button>
+          )}
+        </div>
+      </div>
     </div>
   );
 }

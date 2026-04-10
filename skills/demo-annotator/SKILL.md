@@ -3,10 +3,9 @@ name: demo-annotator
 description: >
   Annotate GTM demo outputs with brief, plain-language commentary explaining why V1 and V2
   outputs differ — tracing each difference back to the foundation documents (ICP, problem-solution,
-  positioning, messaging) that caused it, and connecting each difference to a business challenge
-  (top of funnel growth, engagement & conversion, retention, account value). Tags each annotation
-  with the business challenge(s) it reflects, and produces reveal statements that connect common
-  foundation mistakes to business impact. Produces 2-3 short, scannable annotations per output pair.
+  positioning, messaging) that caused it. Produces reveal statements that connect common foundation
+  mistakes to business impact across the four business challenges (top of funnel growth, engagement
+  & conversion, retention, account value). Produces 2-3 short, scannable annotations per output pair.
   Use this skill whenever the user wants to: add commentary to demo outputs, explain why V1 and V2
   are different, annotate a side-by-side comparison, make a demo self-explanatory, or add "why this
   matters" context to existing V1 vs V2 output pairs. Also trigger when the user mentions annotate,
@@ -16,7 +15,7 @@ description: >
 
 # Demo Annotator
 
-This skill reads a pair of V1 ("Original") and V2 ("With Methodology") outputs from a gtm-demo run, identifies 2-3 differences between them, tags each with the business challenge it reflects, and writes brief commentary that does two things: names what in the foundation documents caused each difference, and connects it to a business challenge the audience cares about. It also produces reveal statements that connect common foundation mistakes to business impact.
+This skill reads a pair of V1 ("Original") and V2 ("With Methodology") outputs from a gtm-demo run, identifies 2-3 differences between them, and writes brief commentary that names what in the foundation documents caused each difference. It also produces reveal statements that connect common foundation mistakes to business impact across the four business challenges the demo is organized around.
 
 ## Why this exists
 
@@ -26,7 +25,7 @@ This is a demonstration of focus, not a researched business recommendation. The 
 
 ## The four business challenges
 
-Every annotation must be tagged with one or more of these challenges. These are the organizing frame for the demo — the prospect picks the one most relevant to them, and the annotations show how it plays out in real GTM outputs.
+These are the organizing frame for the demo — the prospect picks the one most relevant to them, and the demo shows how it plays out in real GTM outputs. Annotations are not individually tagged with a challenge anymore, but you should still think about which challenge(s) each difference connects to — that thinking drives which Reveal statements you write in Step 4.
 
 **Top of funnel growth** — pipeline creation is slow, CAC is high, demand creation is inconsistent. Shows up in GTM when: targeting is broad (dilutes budget, raises CAC), positioning is defensible only through 1:1 feature comparison (no differentiation), content doesn't cut through noise because it's not relevant to a specific audience or problem.
 
@@ -40,6 +39,7 @@ Every annotation must be tagged with one or more of these challenges. These are 
 
 1. **Company name** — to locate the V1/V2 foundation docs and demo outputs
 2. **Demo output slug** — which prompt's outputs to annotate (the subfolder name under `demo-output/`)
+3. **Evidence catalog** — `skills/demo-annotator/references/evidence-catalog.md` — curated stats to cite in the Evidence field
 
 If the user says something like "annotate the Tonic Textual cold email," parse the company and look up available demo outputs. If there's only one, use it. If there are multiple, ask which one.
 
@@ -66,9 +66,9 @@ Read all of these (you need both the outputs AND the foundations to trace cause-
 - `company-gtm-docs/{company}/v2/positioning.md`
 - `company-gtm-docs/{company}/v2/messaging.md`
 
-### Step 2: Identify 2-3 differences (max 4) and tag challenges
+### Step 2: Identify 2-3 differences (max 4)
 
-Scan both outputs for the moments where the quality gap is most visible AND most connected to a business challenge. You're not looking for every difference — you're looking for 2-3 that make a demo attendee think "this is costing me revenue" AND "my team couldn't have made the call that produced this difference on their own."
+Scan both outputs for the moments where the quality gap is most visible AND most connected to a business challenge a demo attendee would recognize. You're not looking for every difference — you're looking for 2-3 that make a demo attendee think "this is costing me revenue" AND "my team couldn't have made the call that produced this difference on their own."
 
 **Prioritize differences that trace back to a strategic decision.** The strongest annotations aren't just about V2 having better information — they're about V2 reflecting a deliberate choice to focus on one path over others. Look for moments where V2 quality stems from a niche selection (chose one segment over others), a tradeoff (excluded something viable to go deeper on something stronger), or a focus decision the team hasn't made. The V1 output isn't wrong — it's the rational output of a team that hasn't made the focusing decision yet.
 
@@ -76,11 +76,11 @@ Scan both outputs for the moments where the quality gap is most visible AND most
 
 1. **Select the specific passage from each document** — the 1-4 sentences (or one short paragraph) from v1.md and v2.md that most clearly demonstrate the difference. Copy the text exactly as it appears in the source document. Pick the passage where the contrast is most visible to a reader seeing the outputs for the first time.
 
-2. **Tag the challenge(s)** — which of the four business challenges does this difference reflect? An annotation can be tagged with multiple challenges if the difference is relevant to more than one. Use the challenge-to-foundation mapping table below to identify the connection. Only tag challenges where the connection is clear and direct — don't stretch.
+2. **Note (mentally) which challenge(s) this difference connects to** — which of the four business challenges does this difference reflect? You won't write this into the annotation, but you'll use it in Step 4 to decide which Reveal statements to write. Use the challenge-to-foundation mapping table below. Only count challenges where the connection is clear and direct — don't stretch.
 
-3. **Frame the V1/V2 observations through the challenge lens** — don't just describe what's different; describe how the difference shows up as the tagged business problem. For example, if tagged "Retention," the V1 observation should explain how the output quality contributes to churn or weak NRR, not just that it's generic.
+3. **Frame the V1/V2 observations through the relevant challenge lens** — don't just describe what's different; describe how the difference shows up as a business problem. If the difference connects to retention, the V1 observation should explain how the output quality contributes to churn or weak NRR, not just that it's generic.
 
-**Not every output will have examples of every challenge.** A cold outbound email is unlikely to reflect retention challenges. A blog post may not connect to account value. Tag only what's genuinely visible — don't force-fit.
+**Not every output will surface every challenge.** A cold outbound email is unlikely to reflect retention. A blog post may not connect to account value. Only carry challenges into Step 4 that are genuinely visible — don't force-fit.
 
 **The specificity cascade — your analytical lens:**
 
@@ -152,7 +152,7 @@ These tables are your **analytical toolkit** for tracing cause-and-effect. They 
 
 ### Challenge-to-foundation mapping
 
-Use this table to identify which challenge to tag each annotation with, and how the foundation gap connects to the business problem. This is your primary tool for challenge tagging.
+Use this table to identify which challenge(s) each difference connects to, and how the foundation gap drives the business problem. This is your primary tool for deciding which Reveal statements to write in Step 4.
 
 **Top of funnel growth:**
 
@@ -203,12 +203,14 @@ When you're deciding which 2-3 differences to annotate, start here:
 
 ### Step 3: Write the annotations
 
-Each annotation has a **Section** label plus exactly three lines. Each V1/V2/Impact line is exactly one sentence. This constraint is the most important formatting rule in the skill — it's what makes annotations scannable during a live demo.
+Each annotation has a **Section** label plus five fields: V1, V2, Difference, Impact, Evidence. V1, V2, and Difference are each exactly one sentence. Impact is one sentence (or two very short ones, ~20 words total). Evidence is ~12 words. This brevity constraint is the most important formatting rule in the skill — it's what makes annotations scannable during a live demo.
 
-1. **Section:** — Required. A natural, descriptive label for what the prospect is looking at (e.g., "Two different email openings", "How each version describes the problem"). This is the primary heading above each passage pair. It should read as a plain-language description of the comparison — not a generic label like "Email Opening" or a methodology term.
+1. **Section:** — Required. A short phrase naming what section of the output we're looking at, with a light reference to the output type. Examples: "Here's how the email opens", "The competition section of the brief", "How the landing page describes the problem". This is NOT a comparison label — just name the excerpt so it's always obvious what part of the output we're reviewing.
 2. **V1:** — One sentence. What the original foundation caused the output to do.
 3. **V2:** — One sentence. What the focused foundation caused the output to do differently.
-4. **Impact:** — One short sentence (~20 words max). A standalone, centered "why this matters" statement that lands after the prospect has seen the contrast. States the business reality as fact using challenger principles — not a framing setup. Must tie to a business outcome.
+4. **Difference:** — One short sentence. A factual, neutral headline calling out what's different between the two versions. This is NOT an assertion of impact — it simply names the difference so the presenter can speak to it. The "One {X}, the other {Y}" pattern is a useful default (e.g., *"One opens with a broad industry observation, the other opens with a specific moment the buyer is living through right now."*) but not required. Don't claim one version is better — just name the contrast.
+5. **Impact:** — One short sentence (or two very short ones) totaling ~20 words. A standalone business reality statement that appears on its own card after the comparison. Frame it around what the **buyer** does or doesn't do — purchase, champion internally, build a business case, delete the email — not what the seller "earns" or "signals." See the **Impact framing — write for the buyer, not the seller** section below for the five rules this field must follow.
+6. **Evidence:** — One supporting metric or stat. Start from `skills/demo-annotator/references/evidence-catalog.md` and **tighten the closest match** to fit the specific Impact line — lead with the number, drop softeners and tactical clauses, aim for ~12 words. The Impact carries the assertion; Evidence is the short stat that backs it. If no catalog line fits the Impact, substitute an equivalent stat from a credible named source. If nothing is a strong match, leave blank. See the **Evidence framing** section below for the four rules.
 
 If you can't say it in one sentence, you're being too specific. Zoom out. Name the pattern, not the details.
 
@@ -220,33 +222,117 @@ This is a demonstration that shows the impact of focus. It is not a researched s
 
 **Voice and style:**
 
-Be direct, be concise, say it once and say it well. Use specific, recognizable situations rather than abstract descriptions. Center business impact and revenue outcomes. Use human, true-to-speech language that speaks to an exec audience.
+Be direct, be concise, say it once and say it well. Use specific, recognizable situations rather than abstract descriptions. Use human, true-to-speech language. Abbreviations: GTM and ICP are fine. Spell out everything else — problem-solution, positioning, messaging.
 
-Abbreviations: GTM and ICP are fine. Spell out everything else — problem-solution, positioning, messaging.
+**Difference lines appear below the passages on the same card.** They are factual headlines that name what's different — the presenter will speak to the "so what" live. Keep them short and observational: "One asks rhetorical questions about the problem, the other states the mechanism as observed fact." Do not assert impact in the Difference line — that's the Impact's job. The "One {X}, the other {Y}" pattern is a useful default but not required; any short, neutral, factual phrasing works as long as it doesn't claim one version is better.
 
-**Impact lines are standalone centered statements that appear after the prospect has already seen the contrast.** They land as a concise "why this matters" — the fact of the matter, stated with challenger confidence. The prospect has just seen two passages side by side; the Impact tells them what that difference actually costs.
+---
 
-**The voice:** State the observation as fact, not as a setup or framing device. Use challenger principles — teach the prospect something about their own situation they haven't articulated. Tie every Impact back to a business outcome. The tone is "here's what's actually happening" not "here's why you should care."
+## Impact framing — write for the buyer, not the seller
 
-**Length constraint:** Impact must fit as a header — one sentence, max ~20 words. If it's longer, cut it. No compound sentences joined by dashes or semicolons.
+The Impact line is the most carefully calibrated field in this skill. It appears on its own card after the comparison, and it has to land in the few seconds the viewer is looking at it. These five principles are not soft preferences — every Impact line should pass all five.
 
-**The pattern:** {what the unfocused version actually is} + {what earns the outcome instead}.
+**Audience note:** The viewer is a CEO, founder, or investor watching a live demo of the impact of GTM foundations. They are NOT a VP of Sales. Frame Impact in language an executive uses to make decisions about GTM foundations, not language sales teams use to coach reps.
 
-Bad impact: "Specificity allows the email to surface in relevant conversations repeatedly, building recognition and trust instead of competing for attention in a crowded inbox." (too long, tactical, reads as a setup paragraph)
+**The card stands alone.** Each Impact card is read in isolation in the display — Difference, V1, V2, and Impact don't appear on screen at the same time. The Impact line must be fully understandable on its own, without reference to any other field. If a phrase only makes sense because it echoes language in the Difference, rewrite it.
 
-Good impact: "Generic observations are just noise. What earns a response is a story the buyer sees themselves in." (concise, states the fact, ties to outcome)
+### The five principles
 
-Bad impact: "Sales outreach that opens with a generic observation gets filtered as noise — without the decision of who you're built for, sellers can't earn the first read from the buyers who actually need them." (too long, too much scaffolding — reads as explanation, not statement)
+**1. Tie Impact to business stakes, not incremental performance gains.**
 
-Good impact: "Broad outreach sounds like every other vendor. Specificity is what earns the first conversation." (concise, challenger framing, business outcome)
+Default sales-domain framings ("earns the first conversation," "earns credibility," "earns consideration") describe the difference as a *boost*. Reframe to an *urgent binary* — what gets through vs. what doesn't, what closes vs. what stalls, what gets read vs. what gets deleted. Make the consequence physical and observable wherever possible.
 
-Bad impact: "Buyers form opinions before talking to sales — showing you understand their real constraint earns the next click." (tactical — "next click" is a marketing metric, not a business outcome)
+- Weak: *"Broad outreach sounds like every other vendor. Specificity is what earns the first conversation."*
+- Strong: *"Generic outreach gets deleted. An email that opens with a signal the buyer recognizes from their own week gets read."*
 
-Good impact: "Surface-level pain descriptions don't earn consideration. Mechanism-level specificity does." (states the fact, names what works)
+**2. Write for an exec/investor audience, not a sales VP.**
 
-Bad impact: "When targeting is broad, the same budget reaches everyone and resonates with no one — specificity is what focuses pipeline and drives engagement." (too long, compound sentence)
+Sales-domain phrases — "earns the first conversation," "pitching vs. consulting," "consultative selling," "the only seat at the table" — are jargon to the audience watching the demo. They map to sales training programs, not executive decision-making about GTM foundations.
 
-Good impact: "Content written for everyone converts no one. Focus is what turns budget into pipeline." (concise, business outcome)
+- Weak: *"A seller who walks into a call with a market overview is pitching. A seller with the buyer's decision criteria is consulting."*
+- Strong: *"A brief built around one buyer's priorities — and the order they weigh them — gives sellers a way to create urgency. A generic brief just starts a feature fight."*
+
+**3. Avoid opaque or methodology-leaking terms; describe in plain language.**
+
+Words that require the viewer to translate before they understand are too slow for a demo. "Mechanism as observed fact," "mechanism-level specificity," and similar compact-but-opaque framings only make sense if the viewer is also reading another field. Replace with plain description.
+
+Terms-as-labels like "feature-first" and "problem-first" are also off-limits — they're terms, not descriptors. Say *"messaging that centers the problem"* instead of *"problem-first messaging."*
+
+- Weak: *"Surface-level pain descriptions don't earn consideration. Mechanism-level specificity does."* — "mechanism-level specificity" is opaque and only resolves with context from the Difference field, which isn't on screen at the same time.
+- Strong: describes how the pain plays out in plain language and ties to a buyer action.
+
+**4. Frame Impact around buyer action and confidence to move forward.**
+
+The most acute Impact frames are about what the buyer is *able to do* (or *unable to do*) as a result of the foundation work — not about what the seller signals or how the message lands. Name a buyer action: purchase, champion internally, build a business case, move forward, delete the email, scroll past.
+
+Reference framings:
+- *"Buyers with the right information and proof at the right time have the confidence to move forward with a purchase."*
+- *"Buyers understand their problems; they need evidence you can solve them."*
+- *"When marketing directly addresses stakeholder concerns with concrete data and realistic timelines, buyers can confidently champion your solution internally and build a bulletproof business case."*
+
+Watch for vendor-side framings sneaking in: "earns credibility," "justifies premium pricing," "earns the conversation," "signals trust." These are about what the vendor accomplishes, not what the buyer can now do. Rewrite to the buyer side.
+
+- Weak: *"Logo lists signal you sell to everyone. Problem-specific proof is what justifies premium pricing and larger deals."* — "justifies premium pricing" is vendor-side.
+- Strong: a framing closer to *"Buyers with the right proof at the right time have the confidence to move forward with a purchase."* — buyer-side action.
+
+**5. Don't frame "conceding a competitor has good capabilities" as the bad thing.**
+
+Sellers should be encouraged to acknowledge a competitor's strengths and reframe back to the buyer's problem. The mistake in a weak competitive brief isn't conceding — it's failing to reframe. Frame the contrast around problem-precision vs. vagueness, not around concession.
+
+- Weak: *"Conceding a competitor is 'solid' invites comparison shopping. Reframing the problem earns the only seat at the table."*
+- Strong: *"Buyers move faster when they see their problem named precisely. Vague competitive comparisons slow deals down."*
+
+### Length and form
+
+**Length:** ~20 words max. One sentence, or two very short sentences. The two-short-sentences shape (e.g., *"Generic outreach gets deleted. An email that opens with a signal the buyer recognizes from their own week gets read."*) is the canonical form.
+
+**Em-dashes:** Em-dashes around a parenthetical insertion are fine and often make the line more concrete (*"A brief built around one buyer's priorities — and the order they weigh them — gives sellers a way to create urgency."*). What's banned is using a dash or semicolon to glue two independent clauses into one long compound sentence.
+
+**The pattern (when in doubt):** {what the unfocused version actually is — observable behavior} + {what the buyer can now do, or can't do, as a result}.
+
+---
+
+## Evidence framing — tailor catalog stats; the Impact carries the assertion
+
+The Evidence line appears as small supporting text below the Impact on the same card. It is NOT the place to make the comparative claim — the Impact already does that. Evidence is the short stat that backs it.
+
+**Catalog policy:** `skills/demo-annotator/references/evidence-catalog.md` is a starting point, not literal copy. Select the closest match for the specific Impact you're supporting and tighten it. Aim for ~12 words. Lead with the number. Drop softeners and tactical clauses. If no catalog line is a strong match for what the Impact asserts, substitute an equivalent stat from a credible named source.
+
+### The four principles
+
+**1. Tighten and front-load the number.** Drop softeners, qualifiers, and explanatory clauses. The number lands first.
+
+- Catalog: *"Personalized cold outreach sees up to ~18% response rates — a 3–10x improvement over generic outreach."*
+- Tightened: *"Personalized outreach sees up to 18% response rates — 3–10x higher than generic emails."*
+
+- Catalog: *"Moving from feature-first to problem-first language tends to shift conversion from low single-digit to mid-to-high single-digit (2–3x) when underlying fit is real."*
+- Tightened: *"Problem-first messaging converts at 2–3x the rate of feature-first outreach."*
+
+**2. Avoid tactical / marketing-domain framings in Evidence.**
+
+Don't use *"A/B tests show,"* *"experiments find,"* or any phrasing that points the viewer toward marketing tactics. The demo is about GTM foundations, not testing — and many organizations are stuck in a vicious cycle of trying to test their way out of bad foundations. Use *"Reports indicate,"* *"Studies show,"* or a named source instead.
+
+- Weak: *"A/B tests show that intent-matched, specific value framing can lift conversion by 31% to 104% vs. generic messaging."*
+- Strong: *"Reports indicate that outcome-specific proof can lift email conversion by 31–104% over generic value claims."*
+
+**3. Drop redundant context the demo already establishes.**
+
+If the demo output is already a cold email, don't say "cold outreach" — just say "outreach." If we're already looking at a landing page, don't repeat "landing page." Cut anything the viewer already knows from the surrounding context.
+
+**4. When no direct metric exists, cite a credible directional report by name and year.**
+
+This is the acceptable substitution shape: *"According to a 2025 [source] report, [finding]."* Use this when there's a real source for the directional claim but no clean stat to lead with.
+
+- Example: *"According to a 2025 Forrester report, enterprise deals are most frequently stalled by internal justification, while buying groups move faster when stakeholders are able to prove ROI."*
+
+**Drop unnecessary supporting prose; let the Impact carry the assertion.** Catalog lines often pad their numbers with explanatory clauses ("— quantified cost of inaction reduces 'no decision' outcomes"). Strip these. Add explanatory context only when the stat would be confusing without it.
+
+- Catalog: *"40–60% of deals are lost to customer indecision, not to competitors — quantified cost of inaction reduces 'no decision' outcomes."*
+- Tightened: *"40–60% of enterprise deals are lost to indecision, not competitors."*
+
+If you can't find a catalog stat that tightens to fit the Impact, and you don't have a credible external source either, leave Evidence blank. A forced match is worse than none.
+
+---
 
 **V2 observations: let the specificity speak for itself.** Don't summarize V2's content with generic labels like "the healthcare prospect" or "healthcare-specific outcomes." Instead, point to the fact that the focused foundation doc contains richer, more specific information — and let the reader see the output difference directly. The V2 observation should describe what the output *does* differently, not restate what's in the V2 docs.
 
@@ -254,7 +340,11 @@ Bad V2: "The focused ICP targets healthcare only, so the email opens with a conc
 
 Good V2: "The focused ICP is specific enough that the email can open with a signal the prospect recognizes from their own world — no generic industry framing needed."
 
-**Banned language — these terms leak methodology internals that the reader hasn't been introduced to:**
+**Banned language:**
+
+These fall into two groups. The first group leaks methodology internals the reader hasn't been introduced to. The second group is sales-domain or methodology-leaking phrasing that doesn't land with an exec/investor audience and tends to soften urgency. Both groups are banned.
+
+*Methodology jargon — the reader doesn't have context:*
 - "narrative spine," "positioning spine," "messaging spine"
 - "value wedge," "defensible wedge," "competitive wedge"
 - "pillars," "messaging pillars"
@@ -262,10 +352,19 @@ Good V2: "The focused ICP is specific enough that the email can open with a sign
 - "buyer-anchored," "niche-driven," "problem-anchored"
 - "messaging framework," "positioning framework"
 - "AE #1," "AE #2," or any reference to seller personas in the demo outputs
-- Any specific metrics, percentages, dollar figures, or product feature names pulled from the outputs
 - Foundation doc section names used as labels: "Buying Triggers section," "Pain (Specific)," "Value Wedge section," "Impact (Quantified)," "narrative arc," "specificity cascade" — these are for your internal analysis when tracing cause-and-effect, not for annotation text
 
-The reason these are banned: the reader is seeing this skill's output during a demo. They don't have context for methodology-specific terms, and specific numbers make it look like a business case rather than a demonstration of how focus changes everything downstream. Foundation doc section names are part of your analytical toolkit — they help you trace the right causal chain, but they should never appear in the annotations themselves.
+*Sales-domain phrasing and vendor-side framings — these soften urgency or talk past an exec audience:*
+- "earns the conversation," "earns the first conversation," "earns credibility," "earns consideration," "earns the next click"
+- "pitching vs. consulting," "consultative selling," "the only seat at the table"
+- "justifies premium pricing," "premium pricing," "signals trust"
+- "feature-first" / "problem-first" used as labels (describe instead: *"messaging that centers the problem"*)
+- "mechanism-level," "mechanism as observed fact," and similar compact-but-opaque phrases that only resolve with context from another field
+
+*Specifics from the outputs themselves:*
+- Any specific metrics, percentages, dollar figures, or product feature names pulled from the outputs
+
+The reason these are banned: the reader is seeing this skill's output during a demo. Methodology terms have no context, sales-domain phrases talk past an exec/investor audience and frame the difference as an incremental boost instead of an urgent business reality, and specific numbers make it look like a business case rather than a demonstration of how focus changes everything downstream. Foundation doc section names are part of your analytical toolkit — they help you trace the right causal chain, but they should never appear in the annotations themselves.
 
 **Instead, use language like:**
 - "the original ICP is broad, so..." / "the focused ICP targets one buyer type, so..."
@@ -277,47 +376,55 @@ The reason these are banned: the reader is seeing this skill's output during a d
 - "the focused ICP knows when pain becomes acute for this buyer, so the output can state the problem as fact instead of asking about it..."
 - "the focused messaging gives every section a connecting thread, so the output tells a story instead of listing independent benefits..."
 
-**Good examples — notice: one sentence per line, no metrics, no jargon, Impact is short and states the fact:**
+**Good examples — notice: Impact lines describe physical/observable buyer behavior or buyer confidence to act, Evidence is tightened to ~12 words and leads with the number. Treat these as patterns to adapt, not lines to copy verbatim — even when a new situation is structurally similar, tailor the wording to the specific buyer and output you're annotating.**
 
-> **Section:** Two different email openings
+> **Section:** Here's how the email opens
 >
-> **Challenge:** Engagement & Conversion
+> **V1:** The original ICP is broad, so the email opens with a generic industry trend that could be sent to any business in any sector.
 >
-> **V1:** The original ICP is broad, so the email defaults to a generic industry observation and can't personalize.
+> **V2:** The focused ICP knows exactly when this buyer's pain becomes acute, so the email opens with a growth signal the prospect recognizes from their own week.
 >
-> **V2:** The focused ICP is specific enough that the email can open with a signal the prospect recognizes from their own world.
+> **Difference:** One opens with a broad industry observation, the other opens with a specific moment the buyer is living through right now.
 >
-> **Impact:** Generic observations are just noise. What earns a response is a story the buyer sees themselves in.
+> **Impact:** Generic outreach gets deleted. An email that opens with a signal the buyer recognizes from their own week gets read.
+>
+> **Evidence:** Personalized outreach sees up to 18% response rates — 3–10x higher than generic emails.
 
-> **Section:** Who the landing page is written for
+> **Section:** How the brief frames each competitor
 >
-> **Challenge:** Top of Funnel Growth
+> **V1:** The original positioning leads with features and complexity, so the brief concedes competitors are "solid" and argues that this product is simpler.
+>
+> **V2:** The focused positioning explains why the typical approach fails for this buyer, so the brief reframes competitors as solving the wrong problem entirely.
+>
+> **Difference:** One concedes the competitor is good and argues on complexity, the other reframes whether the competitor solves the buyer's actual problem.
+>
+> **Impact:** Buyers move faster when they see their problem named precisely. Vague competitive comparisons slow deals down.
+>
+> **Evidence:** Buying groups that align on the problem — not just the solution — are 2.5x more likely to close (Gartner).
+
+> **Section:** The deal context at the top of the brief
+>
+> **V1:** The original ICP covers five industries and a wide company size range, so the brief can only describe a generic market trend instead of a specific deal scenario.
+>
+> **V2:** The focused ICP targets one buyer type with known triggers, so the brief gives the seller a specific prospect profile, evaluation criteria, and the order the buyer weighs them.
+>
+> **Difference:** One describes a broad market moving off spreadsheets, the other describes a specific buyer with known triggers and a ranked evaluation checklist.
+>
+> **Impact:** A brief built around one buyer's priorities — and the order they weigh them — gives sellers a way to create urgency. A generic brief just starts a feature fight.
+>
+> **Evidence:** 40–60% of enterprise deals are lost to indecision, not competitors.
+
+> **Section:** The audience framing on the landing page
 >
 > **V1:** The original ICP is broad, so the landing page writes for everyone without any audience signal in the copy.
 >
 > **V2:** The focused ICP targets one buyer type, so the page describes the reader's world accurately without labeling them.
 >
+> **Difference:** One writes for a broad audience, the other writes for one buyer type without ever labeling them.
+>
 > **Impact:** Content written for everyone converts no one. Focus is what turns budget into pipeline.
-
-> **Section:** How each version describes the problem
 >
-> **Challenge:** Engagement & Conversion
->
-> **V1:** The original problem-solution work describes pain at headline level, so the output sounds like every other vendor in the category.
->
-> **V2:** The focused problem-solution work maps how the pain actually plays out, so the output describes the buyer's real workflow and its cost.
->
-> **Impact:** Surface-level pain descriptions don't earn consideration. Mechanism-level specificity does.
-
-> **Section:** The thread that connects each section
->
-> **Challenge:** Retention
->
-> **V1:** The original messaging lists independent value propositions, so the output reads as a feature list with no connecting thread.
->
-> **V2:** The focused messaging is organized around a single idea, so every section of the output reinforces the same story.
->
-> **Impact:** A shifting value story makes the product feel interchangeable. Consistency is what retains customers.
+> **Evidence:** Companies with a clearly defined ICP see up to 68% higher ROI on their campaigns.
 
 **Bad examples and why:**
 
@@ -328,14 +435,20 @@ The reason these are banned: the reader is seeing this skill's output during a d
 > "Proof comes from healthcare-specific evidence: health system accuracy comparison, 12-point AUC improvement = $2.3M/year" → cites specific metrics from the output, too deep for a demonstration
 >
 > "The V2 messaging framework anchors to a positioning spine that runs through every section" → methodology jargon ("messaging framework," "positioning spine")
+>
+> "Surface-level pain descriptions don't earn consideration. Mechanism-level specificity does." → "earns consideration" is a sales-domain framing that softens urgency, and "mechanism-level specificity" is opaque on its own — it only resolves with context from the Difference, which isn't on screen at the same time. The card has to stand alone.
+>
+> "Logo lists signal you sell to everyone. Problem-specific proof is what justifies premium pricing and larger deals." → "justifies premium pricing" is vendor-side framing, not a buyer action. Reframe to what the buyer is now able to do with the proof — build a business case, move forward, gain confidence to purchase.
+>
+> "A seller who walks into a call with a market overview is pitching. A seller with the buyer's decision criteria is consulting." → "pitching vs. consulting" is sales training language and lands as jargon to an exec audience.
 
 **Annotation count:** Aim for 2-3. Never more than 4. Pick the ones where the cause-and-effect-to-business-outcome chain is clearest. Spread across different foundation inputs when possible — don't write 3 annotations that all trace back to the ICP.
 
 ### Step 4: Write the reveal statements
 
-After writing the annotations, write a reveal section. The reveal connects each business challenge (that appears in the annotations) to the foundation docs, through a common mistake organizations make.
+After writing the annotations, write a reveal section. The reveal connects the business challenges your annotations surfaced to the foundation docs, through a common mistake organizations make.
 
-For each challenge tagged in the annotations, write one statement per foundation doc (ICP, problem-solution, positioning, messaging) that follows this structure:
+From the challenges you noted (mentally) in Step 2, write one statement per foundation doc (ICP, problem-solution, positioning, messaging) for each challenge, following this structure:
 
 1. **Common mistake** — what most organizations get wrong with this foundation area
 2. **What the focused foundation does instead** — what changes when the foundation is built with methodology
@@ -345,7 +458,7 @@ Each statement should be 1-2 sentences. Use the challenge-to-foundation mapping 
 
 **Important:** Use "problem-solution" (not "PSF") in all reveal text — this is a non-standard abbreviation that the audience won't recognize.
 
-Only include challenges that are actually tagged in the annotations — don't write reveal statements for challenges that aren't represented. Only include foundation docs where the connection to the challenge is clear and direct.
+Only include challenges that your annotations actually surfaced — don't write reveal statements for challenges that aren't represented. Only include foundation docs where the connection to the challenge is clear and direct.
 
 **Good reveal statement examples:**
 
@@ -366,7 +479,7 @@ Use this format:
 
 ---
 
-**Section:** {A natural, descriptive label for what the prospect is looking at — e.g., "Two different email openings", "How each version describes the problem", "The proof each version offers". This is the primary heading above the passage pair.}
+**Section:** {Short phrase naming what section of the output we're looking at — e.g., "Here's how the email opens", "The competition section of the brief", "How the landing page describes the problem". Lightly reference the output type and section.}
 
 > [!v1-passage]
 > {Exact excerpt from v1.md — 1-4 sentences, copied verbatim}
@@ -374,17 +487,19 @@ Use this format:
 > [!v2-passage]
 > {Exact excerpt from v2.md — 1-4 sentences, copied verbatim}
 
-**Challenge:** {one or more of: Top of Funnel Growth, Engagement & Conversion, Retention, Account Value — comma-separated if multiple}
-
-**V1:** {one-sentence observation about what V1 does and why, framed through the challenge lens}
+**V1:** {one-sentence observation about what V1 does and why, framed through the relevant challenge lens}
 
 **V2:** {one-sentence observation about what V2 does differently and why}
 
-**Impact:** {one sentence — see Impact field rules below}
+**Difference:** {one sentence — factual headline of what's different, not asserting impact}
+
+**Impact:** {one sentence — standalone business reality statement, ~20 words max}
+
+**Evidence:** {one supporting stat tightened from evidence-catalog.md or sourced externally — ~12 words, lead with the number, no "A/B tests" phrasing — leave blank if no strong match}
 
 ---
 
-**Section:** {descriptive label for this passage pair}
+**Section:** {section name for this passage pair}
 
 > [!v1-passage]
 > {Exact excerpt from v1.md}
@@ -392,13 +507,15 @@ Use this format:
 > [!v2-passage]
 > {Exact excerpt from v2.md}
 
-**Challenge:** {challenge tag(s)}
-
 **V1:** {observation}
 
 **V2:** {observation}
 
-**Impact:** {one sentence — see Impact field rules below}
+**Difference:** {factual headline}
+
+**Impact:** {business reality statement}
+
+**Evidence:** {supporting stat or blank}
 
 ---
 
@@ -414,27 +531,27 @@ Use this format:
 
 **Messaging:** {1-2 sentence reveal statement}
 
-## {Next Challenge Name, if multiple challenges tagged}
+## {Next Challenge Name, if the annotations surfaced more than one}
 
 **ICP:** {reveal statement}
 
 ...
 ```
 
-Every annotation must have all five fields: Section, Challenge, V1, V2, Impact. Always pair V1 and V2 — no one-sided annotations.
+Every annotation must have all six fields: Section, V1, V2, Difference, Impact, Evidence. Always pair V1 and V2 — no one-sided annotations. Evidence may be left blank if no catalog stat is a strong match.
 
-The `**Section:**` field is required. It is the primary text above each passage pair — the label the prospect reads first. It must be a natural, descriptive phrase that tells the reader what they're comparing (e.g., "Two different email openings", "How each version earns the next click", "The proof each version offers"). It should NOT be a generic fallback like "Email Opening" or a methodology term. Write it as a plain-language description of the contrast the reader is about to see.
+The `**Section:**` field is required. It is the primary text above each passage pair — the label the prospect reads first. It must be a short phrase naming what section of the output we're looking at, with a light reference to the output type (e.g., "Here's how the email opens", "The competition section of the brief", "How the landing page describes the problem"). It should NOT be a comparison label like "Two different email openings" or a generic fallback like "Email Opening" or a methodology term. Just name the excerpt.
 
 Every annotation must also have both passage blocks. The passages are direct quotes — copy the exact text from the source document. Keep them short (1-4 sentences). The `> [!v1-passage]` and `> [!v2-passage]` markers must appear exactly as shown — they are parsed by the demo display frontend.
 
-The `**Challenge:**` field must appear exactly as shown — it is parsed by the demo display frontend to group annotations by business challenge. Use the exact challenge names: "Top of Funnel Growth", "Engagement & Conversion", "Retention", "Account Value".
-
-Also update `meta.json` to include a `challenges` array listing all challenges tagged across the annotations:
+Also update `meta.json` to include a `challenges` array listing the challenges your annotations surfaced (used by the demo display to organize the talk track):
 ```json
 {"prompt": "...", "skill": "...", "challenges": ["Engagement & Conversion", "Retention"]}
 ```
 
-Confirm to the user: "Annotations saved — {N} annotations covering [which challenges were tagged] and [which foundation inputs were referenced]."
+Use the exact challenge names: "Top of Funnel Growth", "Engagement & Conversion", "Retention", "Account Value".
+
+Confirm to the user: "Annotations saved — {N} annotations covering [which challenges were surfaced] and [which foundation inputs were referenced]."
 
 ## What this skill does NOT do
 
@@ -442,4 +559,4 @@ Confirm to the user: "Annotations saved — {N} annotations covering [which chal
 - It doesn't generate new demo outputs (that's gtm-demo's job)
 - It doesn't prescribe strategy decisions — it demonstrates the impact of foundation quality
 - It doesn't evaluate which output is "better" — it explains what caused the differences and what that means for the business
-- It doesn't force-fit challenges — if an output doesn't clearly demonstrate a challenge, don't tag it
+- It doesn't force-fit challenges — if an output doesn't clearly demonstrate a challenge, don't carry it into the Reveal
